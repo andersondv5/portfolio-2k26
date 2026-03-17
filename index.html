@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anderson Silva | Web Designer & Desenvolvedor</title>
 
-   <!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/logo.svg">
-  <!-- Outros links... -->
 
   <!-- Tailwind + Lucide + Font Awesome -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +17,7 @@
       scroll-behavior: smooth;
     }
 
-    /* --- Modo Light (corrigido) --- */
+    /* --- Modo Light --- */
     body.light {
       background-color: #f9fafb;
       color: #111827;
@@ -54,7 +53,6 @@
     body.light .bg-zinc-900 {
       background-color: #ffffff !important;
     }
-    /* Ajuste para cards e bordas */
     body.light .border-glow {
       background: rgba(255, 255, 255, 0.7);
     }
@@ -76,22 +74,18 @@
       border-color: #e5e7eb;
       color: #9ca3af;
     }
-    /* Ajuste para ícones de tecnologia no modo light */
     body.light .tech-icon:hover {
-      color: inherit; /* mantém a cor do hover definida no próprio elemento */
+      color: inherit;
     }
-    /* Ajuste para o fundo dos cards de tecnologia */
     body.light .bg-zinc-900\/20 {
       background-color: rgba(255, 255, 255, 0.5) !important;
     }
-    /* Cor dos textos em títulos */
     body.light h1, body.light h2, body.light h3 {
       color: #111827;
     }
     body.light .text-zinc-200 {
       color: #374151 !important;
     }
-    /* Ajuste para o fundo do header no modo light */
     body.light header {
       background-color: rgba(249, 250, 251, 0.7) !important;
       border-bottom-color: #e5e7eb !important;
@@ -105,7 +99,6 @@
     body.light header .text-zinc-400:hover {
       color: #111827 !important;
     }
-    /* Ajuste para o botão de tema */
     body.light .theme-toggle {
       border-color: #d1d5db;
       color: #6b7280;
@@ -114,23 +107,19 @@
       background-color: rgba(0,0,0,0.05);
       color: #111827;
     }
-    /* Ajuste para os spans de data nas fotos */
     body.light .bg-zinc-800 {
       background-color: #e5e7eb !important;
       color: #374151 !important;
       border-color: #9ca3af !important;
     }
-    /* Ajuste para a seção de números da rotina */
     body.light .glow-number {
       background: linear-gradient(135deg, #1f2937, #4b5563);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    /* Ajuste para o fundo do playground */
     body.light .bg-zinc-900\/40 {
       background-color: rgba(255, 255, 255, 0.7) !important;
     }
-    /* Ajuste para o botão de contato verde */
     body.light .border-green-700 {
       border-color: #22c55e !important;
     }
@@ -258,7 +247,7 @@
   </div>
 </section>
 
-<!-- SOBRE MIM -->
+<!-- SOBRE MIM (profissional) -->
 <section id="sobre" class="py-24 px-6">
   <div class="max-w-3xl mx-auto">
     <div class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-8 md:p-10 fade-up backdrop-blur-sm card-hover border-glow">
@@ -282,69 +271,7 @@
   </div>
 </section>
 
-<!-- SEÇÃO: FOTOS "SCRAPBOOK" -->
-<section class="py-16 px-6">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-medium mb-8 tracking-tight text-zinc-200">📸 momentos</h2>
-    <div class="relative flex flex-wrap justify-center items-center gap-4 md:gap-6" style="min-height: 400px;">
-      
-      <!-- Foto 1 -->
-      <div class="relative -rotate-3 z-10 w-48 md:w-64 shadow-xl hover:scale-105 transition-transform duration-300">
-        <img src="img/foto-1.jpeg" 
-             alt="foto 1" 
-             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
-        <span class="absolute -top-4 -left-4 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2025</span>
-      </div>
-      
-      <!-- Foto 2 -->
-      <div class="relative rotate-2 z-20 w-40 md:w-56 -mt-8 shadow-xl hover:scale-105 transition-transform duration-300">
-        <img src="img/foto-2.jpeg" 
-             alt="foto 2" 
-             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
-        <span class="absolute -bottom-3 -left-3 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2026</span>
-      </div>
-      
-      <!-- Foto 3 -->
-      <div class="relative -rotate-6 z-30 w-32 md:w-48 -mt-4 shadow-xl hover:scale-105 transition-transform duration-300">
-        <img src="img/foto-3.jpeg" 
-             alt="foto 3" 
-             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
-        <span class="absolute -top-3 right-2 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 16km</span>
-      </div>
-      
-      <!-- Foto 4 -->
-      <div class="relative rotate-6 z-40 w-44 md:w-60 -mt-12 shadow-xl hover:scale-105 transition-transform duration-300">
-        <img src="img/foto-4.jpeg" 
-             alt="foto 4" 
-             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
-        <span class="absolute -bottom-5 left-6 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2025</span>
-      </div>
-      
-      <!-- Foto 5 -->
-      <div class="relative -rotate-3 z-[1000] w-56 md:w-72 -mt-10 shadow-xl hover:scale-105 transition-transform duration-300 hidden md:block">
-        <img src="img/foto-5.jpeg" 
-             alt="foto 5" 
-             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
-        <span class="absolute -top-4 -right-2 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 cafezin</span>
-      </div>
-      
-    </div>
-    <p class="text-zinc-500 text-sm text-center mt-12 italic">arquivo pessoal • fotos aleatórias da vida</p>
-  </div>
-</section>
-
-<!-- FRASE DE IMPACTO -->
-<section class="py-16 px-6">
-  <div class="max-w-4xl mx-auto">
-    <div class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-10 md:p-12 fade-up backdrop-blur-sm card-hover border-glow">
-      <h2 class="text-3xl md:text-4xl font-semibold leading-snug tracking-tight text-zinc-100">
-        Um site não é só aparência.<br>É o que faz o cliente confiar em você.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESSO -->
+<!-- PROCESSO (profissional) -->
 <section class="py-16 px-6">
   <div class="max-w-5xl mx-auto">
     <div class="grid md:grid-cols-3 gap-6">
@@ -370,7 +297,7 @@
   </div>
 </section>
 
-<!-- SOLUÇÕES -->
+<!-- SOLUÇÕES (profissional) -->
 <section class="py-16 px-6">
   <div class="max-w-5xl mx-auto">
     <div class="grid md:grid-cols-2 gap-6">
@@ -394,37 +321,7 @@
   </div>
 </section>
 
-<!-- NÚMEROS DA ROTINA -->
-<section class="py-20 px-6">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-medium text-center mb-12 tracking-tight text-zinc-200">Números da rotina <span class="text-zinc-500">(sem filtro)</span></h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center">
-        <span class="text-5xl mb-2 inline-block icon-pulse">💻</span>
-        <div class="text-3xl font-semibold glow-number mt-2">2.500+</div>
-        <p class="text-zinc-400 text-sm mt-1">horas estudadas</p>
-      </div>
-      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.1s">
-        <span class="text-5xl mb-2 inline-block icon-pulse">☕</span>
-        <div class="text-3xl font-semibold glow-number mt-2">1.200+</div>
-        <p class="text-zinc-400 text-sm mt-1">cafés tomados</p>
-      </div>
-      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.2s">
-        <span class="text-5xl mb-2 inline-block icon-pulse">✨</span>
-        <div class="text-3xl font-semibold glow-number mt-2">87</div>
-        <p class="text-zinc-400 text-sm mt-1">projetos imaginados</p>
-      </div>
-      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.3s">
-        <span class="text-5xl mb-2 inline-block icon-pulse">🎧</span>
-        <div class="text-3xl font-semibold glow-number mt-2">3.4k</div>
-        <p class="text-zinc-400 text-sm mt-1">músicas ouvidas</p>
-      </div>
-    </div>
-    <p class="text-zinc-500 text-xs text-center mt-8 italic">* números atualizados em tempo real (mais ou menos)</p>
-  </div>
-</section>
-
-<!-- TECNOLOGIAS QUE DOMINO -->
+<!-- TECNOLOGIAS (profissional) -->
 <section class="py-16 px-6">
   <div class="max-w-3xl mx-auto">
     <div class="bg-zinc-900/20 border border-zinc-800 rounded-3xl p-10 fade-up backdrop-blur-sm card-hover border-glow">
@@ -445,7 +342,7 @@
   </div>
 </section>
 
-<!-- SEÇÃO: ÚLTIMO PROJETO -->
+<!-- SEÇÃO: ÚLTIMO PROJETO (profissional) -->
 <section id="projetos" class="py-20 px-6">
   <div class="max-w-5xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-medium text-center mb-12 tracking-tight text-zinc-200">📱 último projeto</h2>
@@ -504,7 +401,99 @@
   </div>
 </section>
 
-<!-- PLAYGROUND CRIATIVO -->
+<!-- FRASE DE IMPACTO (separador profissional/pessoal) -->
+<section class="py-16 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-10 md:p-12 fade-up backdrop-blur-sm card-hover border-glow">
+      <h2 class="text-3xl md:text-4xl font-semibold leading-snug tracking-tight text-zinc-100">
+        Um site não é só aparência.<br>É o que faz o cliente confiar em você.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: FOTOS "SCRAPBOOK" (pessoal) -->
+<section class="py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-medium mb-8 tracking-tight text-zinc-200">📸 momentos</h2>
+    <div class="relative flex flex-wrap justify-center items-center gap-4 md:gap-6" style="min-height: 400px;">
+      
+      <!-- Foto 1 -->
+      <div class="relative -rotate-3 z-10 w-48 md:w-64 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-1.jpeg" 
+             alt="foto 1" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -top-4 -left-4 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2025</span>
+      </div>
+      
+      <!-- Foto 2 -->
+      <div class="relative rotate-2 z-20 w-40 md:w-56 -mt-8 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-2.jpeg" 
+             alt="foto 2" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -bottom-3 -left-3 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2026</span>
+      </div>
+      
+      <!-- Foto 3 -->
+      <div class="relative -rotate-6 z-30 w-32 md:w-48 -mt-4 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-3.jpeg" 
+             alt="foto 3" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -top-3 right-2 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 16km</span>
+      </div>
+      
+      <!-- Foto 4 -->
+      <div class="relative rotate-6 z-40 w-44 md:w-60 -mt-12 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-4.jpeg" 
+             alt="foto 4" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -bottom-5 left-6 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2025</span>
+      </div>
+      
+      <!-- Foto 5 -->
+      <div class="relative -rotate-3 z-[1000] w-56 md:w-72 -mt-10 shadow-xl hover:scale-105 transition-transform duration-300 hidden md:block">
+        <img src="img/foto-5.jpeg" 
+             alt="foto 5" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -top-4 -right-2 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 cafezin</span>
+      </div>
+      
+    </div>
+    <p class="text-zinc-500 text-sm text-center mt-12 italic">arquivo pessoal • fotos aleatórias da vida</p>
+  </div>
+</section>
+
+<!-- NÚMEROS DA ROTINA (pessoal) -->
+<section class="py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-medium text-center mb-12 tracking-tight text-zinc-200">Números da rotina <span class="text-zinc-500">(sem filtro)</span></h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center">
+        <span class="text-5xl mb-2 inline-block icon-pulse">💻</span>
+        <div class="text-3xl font-semibold glow-number mt-2">2.500+</div>
+        <p class="text-zinc-400 text-sm mt-1">horas estudadas</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.1s">
+        <span class="text-5xl mb-2 inline-block icon-pulse">☕</span>
+        <div class="text-3xl font-semibold glow-number mt-2">1.200+</div>
+        <p class="text-zinc-400 text-sm mt-1">cafés tomados</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.2s">
+        <span class="text-5xl mb-2 inline-block icon-pulse">✨</span>
+        <div class="text-3xl font-semibold glow-number mt-2">87</div>
+        <p class="text-zinc-400 text-sm mt-1">projetos imaginados</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.3s">
+        <span class="text-5xl mb-2 inline-block icon-pulse">🎧</span>
+        <div class="text-3xl font-semibold glow-number mt-2">3.4k</div>
+        <p class="text-zinc-400 text-sm mt-1">músicas ouvidas</p>
+      </div>
+    </div>
+    <p class="text-zinc-500 text-xs text-center mt-8 italic">* números atualizados em tempo real (mais ou menos)</p>
+  </div>
+</section>
+
+<!-- PLAYGROUND CRIATIVO (pessoal) -->
 <section class="py-20 px-6">
   <div class="max-w-5xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-medium text-center mb-12 tracking-tight text-zinc-200">🎸 fora do código</h2>
