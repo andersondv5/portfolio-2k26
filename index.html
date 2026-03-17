@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anderson Silva | Web Designer & Desenvolvedor</title>
+  <!-- Tailwind + Lucide + Font Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* --- Modo Light (corrigido) --- */
+    body.light {
+      background-color: #f9fafb;
+      color: #111827;
+    }
+    body.light .bg-black {
+      background-color: #f9fafb !important;
+    }
+    body.light .text-white {
+      color: #111827 !important;
+    }
+    body.light .text-zinc-400, 
+    body.light .text-zinc-500, 
+    body.light .text-zinc-600 {
+      color: #4b5563 !important;
+    }
+    body.light .text-zinc-300 {
+      color: #1f2937 !important;
+    }
+    body.light .border-zinc-800 {
+      border-color: #e5e7eb !important;
+    }
+    body.light .bg-zinc-900\/40, 
+    body.light .bg-zinc-900\/20 {
+      background-color: rgba(255, 255, 255, 0.8) !important;
+      backdrop-filter: blur(8px);
+    }
+    body.light .border-zinc-700 {
+      border-color: #d1d5db !important;
+    }
+    body.light .bg-zinc-800 {
+      background-color: #e5e7eb !important;
+    }
+    body.light .bg-zinc-900 {
+      background-color: #ffffff !important;
+    }
+    /* Ajuste para cards e bordas */
+    body.light .border-glow {
+      background: rgba(255, 255, 255, 0.7);
+    }
+    body.light .border-glow::before {
+      background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.01), rgba(0,0,0,0.05));
+    }
+    body.light .glow-number {
+      background: linear-gradient(135deg, #1f2937, #4b5563);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    body.light .card-hover:hover {
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0,0,0,0.05);
+    }
+    body.light .tech-icon {
+      color: #6b7280;
+    }
+    body.light footer {
+      border-color: #e5e7eb;
+      color: #9ca3af;
+    }
+    /* Ajuste para ícones de tecnologia no modo light */
+    body.light .tech-icon:hover {
+      color: inherit; /* mantém a cor do hover definida no próprio elemento */
+    }
+    /* Ajuste para o fundo dos cards de tecnologia */
+    body.light .bg-zinc-900\/20 {
+      background-color: rgba(255, 255, 255, 0.5) !important;
+    }
+    /* Cor dos textos em títulos */
+    body.light h1, body.light h2, body.light h3 {
+      color: #111827;
+    }
+    body.light .text-zinc-200 {
+      color: #374151 !important;
+    }
+    /* Ajuste para o fundo do header no modo light */
+    body.light header {
+      background-color: rgba(249, 250, 251, 0.7) !important;
+      border-bottom-color: #e5e7eb !important;
+    }
+    body.light header .text-zinc-300 {
+      color: #4b5563 !important;
+    }
+    body.light header .text-zinc-400 {
+      color: #6b7280 !important;
+    }
+    body.light header .text-zinc-400:hover {
+      color: #111827 !important;
+    }
+    /* Ajuste para o botão de tema */
+    body.light .theme-toggle {
+      border-color: #d1d5db;
+      color: #6b7280;
+    }
+    body.light .theme-toggle:hover {
+      background-color: rgba(0,0,0,0.05);
+      color: #111827;
+    }
+    /* Ajuste para os spans de data nas fotos */
+    body.light .bg-zinc-800 {
+      background-color: #e5e7eb !important;
+      color: #374151 !important;
+      border-color: #9ca3af !important;
+    }
+    /* Ajuste para a seção de números da rotina */
+    body.light .glow-number {
+      background: linear-gradient(135deg, #1f2937, #4b5563);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    /* Ajuste para o fundo do playground */
+    body.light .bg-zinc-900\/40 {
+      background-color: rgba(255, 255, 255, 0.7) !important;
+    }
+    /* Ajuste para o botão de contato verde */
+    body.light .border-green-700 {
+      border-color: #22c55e !important;
+    }
+    body.light .bg-green-900\/20 {
+      background-color: rgba(34, 197, 94, 0.1) !important;
+    }
+    body.light .text-green-300 {
+      color: #16a34a !important;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 9999px;
+      border: 1px solid currentColor;
+      transition: all 0.2s;
+    }
+    .theme-toggle:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 30px -10px rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(255,255,255,0.1);
+      border-color: #3f3f46;
+    }
+
+    @keyframes softPulse {
+      0% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0.8; transform: scale(1); }
+    }
+    .icon-pulse {
+      animation: softPulse 3s infinite ease-in-out;
+    }
+
+    .border-glow {
+      position: relative;
+      background: rgba(24, 24, 27, 0.4);
+      border: 1px solid transparent;
+      background-clip: padding-box;
+    }
+    .border-glow::before {
+      content: '';
+      position: absolute;
+      top: -1px; right: -1px; bottom: -1px; left: -1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02), rgba(255,255,255,0.1));
+      border-radius: inherit;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .border-glow:hover::before {
+      opacity: 1;
+    }
+
+    .tech-icon {
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+
+<!-- NAVBAR -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur border-b border-zinc-800">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+    <span class="text-sm tracking-wide text-zinc-300">Anderson Silva</span>
+    <div class="flex items-center space-x-4">
+      <a href="#sobre" class="text-sm text-zinc-400 hover:text-white transition">Sobre</a>
+      <a href="#projetos" class="text-sm text-zinc-400 hover:text-white transition">Projetos</a>
+      <a href="#contato" class="text-sm text-zinc-400 hover:text-white transition">Contato</a>
+      <!-- Botão de alternância de tema -->
+      <button id="theme-toggle" class="theme-toggle text-zinc-400 hover:text-white transition" aria-label="Alternar tema">
+        <i data-lucide="moon" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center px-6 pt-16">
+  <div class="max-w-4xl text-center fade-up">
+    <h1 class="text-5xl md:text-7xl font-semibold leading-tight tracking-tight">
+      Anderson Silva
+    </h1>
+    <h2 class="text-2xl md:text-3xl text-zinc-500 mt-4 font-light">
+      desenvolvedor, web designer,<br>cantor & atleta
+    </h2>
+    <p class="mt-8 text-lg text-zinc-400 max-w-xl mx-auto">
+      Transformo ideias em código, dou voz à música e encontro equilíbrio no esporte. 
+      Cada projeto é uma nova melodia, cada linha de código um passo mais perto do objetivo.
+    </p>
+    <!-- DOIS BOTÕES MINIMALISTAS -->
+    <div class="mt-10 flex flex-wrap gap-4 justify-center">
+      <a href="#projetos" class="group inline-flex items-center border border-zinc-700 hover:border-white px-6 py-3 rounded-full text-sm text-zinc-300 hover:text-white transition-all duration-300">
+        <span>Ver projetos</span>
+        <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      <a href="https://wa.me/5583998363906" target="_blank" class="group inline-flex items-center border border-zinc-700 hover:border-white px-6 py-3 rounded-full text-sm text-zinc-300 hover:text-white transition-all duration-300">
+        <span>Entrar em contato</span>
+        <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MIM -->
+<section id="sobre" class="py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-8 md:p-10 fade-up backdrop-blur-sm card-hover border-glow">
+      <h2 class="text-3xl md:text-4xl font-medium mb-6 tracking-tight">Sobre mim</h2>
+      <p class="text-zinc-300 text-lg leading-relaxed">
+        Meu nome é Anderson Silva, tenho 27 anos e sou Web Designer e desenvolvedor. 
+        Trabalho na interseção entre design e código para criar sites que não apenas impressionam, 
+        mas geram resultados reais para negócios.
+      </p>
+      <p class="mt-4 text-zinc-400">
+        No meu processo, utilizo Figma para prototipar cada detalhe antes de desenvolver — 
+        garantindo que a experiência do usuário seja fluida, estratégica e alinhada aos seus objetivos.
+      </p>
+      <p class="mt-4 text-zinc-400">
+        Fora do trabalho, você me encontra com uma guitarra na mão, explorando novos acordes, 
+        ou pedalando por aí. A música e o esporte são meu combustível para manter a criatividade 
+        e o foco. Já participei de algumas corridas de rua e até gravei covers no meu quarto — 
+        quem sabe um dia lanço algo oficial?
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: FOTOS "SCRAPBOOK" -->
+<section class="py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-medium mb-8 tracking-tight text-zinc-200">📸 momentos</h2>
+    <div class="relative flex flex-wrap justify-center items-center gap-4 md:gap-6" style="min-height: 400px;">
+      
+      <!-- Foto 1 -->
+      <div class="relative -rotate-3 z-10 w-48 md:w-64 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-1.jpeg" 
+             alt="foto 1" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -bottom-4 -right-4 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2025</span>
+      </div>
+      
+      <!-- Foto 2 -->
+      <div class="relative rotate-2 z-20 w-40 md:w-56 -mt-8 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-2.jpeg" 
+             alt="foto 2" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -bottom-3 -left-3 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2026</span>
+      </div>
+      
+      <!-- Foto 3 -->
+      <div class="relative -rotate-6 z-30 w-32 md:w-48 -mt-4 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-3.jpeg" 
+             alt="foto 3" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -top-3 right-2 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 16km</span>
+      </div>
+      
+      <!-- Foto 4 -->
+      <div class="relative rotate-6 z-40 w-44 md:w-60 -mt-12 shadow-xl hover:scale-105 transition-transform duration-300">
+        <img src="img/foto-4.jpeg" 
+             alt="foto 4" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -bottom-5 left-6 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 2025</span>
+      </div>
+      
+      <!-- Foto 5 -->
+      <div class="relative -rotate-3 z-[1000] w-56 md:w-72 -mt-10 shadow-xl hover:scale-105 transition-transform duration-300 hidden md:block">
+        <img src="img/foto-5.jpeg" 
+             alt="foto 5" 
+             class="rounded-lg border-4 border-zinc-700 object-cover w-full h-auto">
+        <span class="absolute -top-4 -right-2 bg-zinc-800 text-xs px-3 py-1 rounded-full border border-zinc-600">📸 cafezin</span>
+      </div>
+      
+    </div>
+    <p class="text-zinc-500 text-sm text-center mt-12 italic">arquivo pessoal • fotos aleatórias da vida</p>
+  </div>
+</section>
+
+<!-- FRASE DE IMPACTO -->
+<section class="py-16 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-10 md:p-12 fade-up backdrop-blur-sm card-hover border-glow">
+      <h2 class="text-3xl md:text-4xl font-semibold leading-snug tracking-tight text-zinc-100">
+        Um site não é só aparência.<br>É o que faz o cliente confiar em você.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow">
+        <span class="text-4xl font-light text-zinc-600">01</span>
+        <p class="mt-4 text-zinc-300 text-base leading-relaxed">
+          Entendo seu negócio, seu público e o que você precisa alcançar.
+        </p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow" style="transition-delay: 0.1s">
+        <span class="text-4xl font-light text-zinc-600">02</span>
+        <p class="mt-4 text-zinc-300 text-base leading-relaxed">
+          Crio o design no Figma com foco em experiência e conversão.
+        </p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow" style="transition-delay: 0.2s">
+        <span class="text-4xl font-light text-zinc-600">03</span>
+        <p class="mt-4 text-zinc-300 text-base leading-relaxed">
+          Desenvolvo um site rápido, responsivo e pronto para uso.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÕES -->
+<section class="py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow">
+        <h3 class="text-xl font-medium mb-2 text-white">Landing Pages</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Páginas focadas em atrair clientes e gerar conversão direta.</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow" style="transition-delay: 0.1s">
+        <h3 class="text-xl font-medium mb-2 text-white">Sites Institucionais</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Presença profissional para empresas que querem crescer.</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow" style="transition-delay: 0.2s">
+        <h3 class="text-xl font-medium mb-2 text-white">Redesign</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Transformo sites antigos em experiências modernas.</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow" style="transition-delay: 0.3s">
+        <h3 class="text-xl font-medium mb-2 text-white">Interfaces UX/UI</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Interfaces pensadas para facilitar a vida do usuário.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS DA ROTINA -->
+<section class="py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-medium text-center mb-12 tracking-tight text-zinc-200">Números da rotina <span class="text-zinc-500">(sem filtro)</span></h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center">
+        <span class="text-5xl mb-2 inline-block icon-pulse">💻</span>
+        <div class="text-3xl font-semibold glow-number mt-2">2.500+</div>
+        <p class="text-zinc-400 text-sm mt-1">horas estudadas</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.1s">
+        <span class="text-5xl mb-2 inline-block icon-pulse">☕</span>
+        <div class="text-3xl font-semibold glow-number mt-2">1.200+</div>
+        <p class="text-zinc-400 text-sm mt-1">cafés tomados</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.2s">
+        <span class="text-5xl mb-2 inline-block icon-pulse">✨</span>
+        <div class="text-3xl font-semibold glow-number mt-2">87</div>
+        <p class="text-zinc-400 text-sm mt-1">projetos imaginados</p>
+      </div>
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow text-center" style="transition-delay: 0.3s">
+        <span class="text-5xl mb-2 inline-block icon-pulse">🎧</span>
+        <div class="text-3xl font-semibold glow-number mt-2">3.4k</div>
+        <p class="text-zinc-400 text-sm mt-1">músicas ouvidas</p>
+      </div>
+    </div>
+    <p class="text-zinc-500 text-xs text-center mt-8 italic">* números atualizados em tempo real (mais ou menos)</p>
+  </div>
+</section>
+
+<!-- TECNOLOGIAS QUE DOMINO -->
+<section class="py-16 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="bg-zinc-900/20 border border-zinc-800 rounded-3xl p-10 fade-up backdrop-blur-sm card-hover border-glow">
+      <h2 class="text-2xl font-light text-center mb-10 tracking-wide">tecnologias & ferramentas</h2>
+      <div class="flex flex-wrap justify-center gap-8 text-zinc-500 text-3xl">
+        <i class="fab fa-react tech-icon hover:text-sky-400"></i>
+        <i class="fab fa-js tech-icon hover:text-yellow-400"></i>
+        <i class="fab fa-python tech-icon hover:text-blue-400"></i>
+        <i class="fab fa-figma tech-icon hover:text-purple-400"></i>
+        <i class="fab fa-tailwindcss tech-icon hover:text-teal-400"></i>
+        <i class="fab fa-git-alt tech-icon hover:text-orange-400"></i>
+        <i class="fas fa-database tech-icon hover:text-green-400"></i>
+        <i class="fab fa-html5 tech-icon hover:text-orange-500"></i>
+        <i class="fab fa-css3-alt tech-icon hover:text-blue-500"></i>
+      </div>
+      <p class="text-center text-zinc-600 text-sm mt-10">JavaScript • React • Python • Django • UX/UI • Figma • Tailwind • Git</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: ÚLTIMO PROJETO -->
+<section id="projetos" class="py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-medium text-center mb-12 tracking-tight text-zinc-200">📱 último projeto</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <!-- Mockup do site -->
+      <div class="relative fade-up">
+        <div class="bg-zinc-800/30 rounded-3xl p-4 border border-zinc-700 shadow-2xl">
+          <img src="img/nay.jpeg" 
+               alt="Site Naylyne Psicóloga" 
+               class="rounded-2xl border border-zinc-600 w-full h-auto"
+               onerror="this.src='https://via.placeholder.com/600x400/1f1f1f/ffffff?text=Naylyne+Psicóloga'">
+        </div>
+        <!-- Detalhe de sombra -->
+        <div class="absolute -bottom-4 -right-4 w-full h-full bg-zinc-900/50 rounded-3xl -z-10 blur-xl"></div>
+      </div>
+      
+      <!-- Descrição do projeto -->
+      <div class="fade-up" style="transition-delay: 0.2s">
+        <h3 class="text-3xl font-medium mb-4 text-white">Naylyne Psicóloga</h3>
+        <p class="text-zinc-400 text-lg leading-relaxed mb-4">
+          Landing page profissional desenvolvida para psicóloga, com foco em transmitir confiança, acolhimento e facilitar o contato de novos pacientes.
+        </p>
+        <ul class="space-y-2 text-zinc-300 mb-6">
+          <li class="flex items-start gap-2">
+            <span class="text-green-400 mt-1">✓</span>
+            <span>Design suave e acolhedor, alinhado à identidade da profissional</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-400 mt-1">✓</span>
+            <span>Botão direto para WhatsApp, facilitando o primeiro contato</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-400 mt-1">✓</span>
+            <span>Seções sobre, serviços, depoimentos e localização</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-400 mt-1">✓</span>
+            <span>100% responsivo e otimizado para conversão</span>
+          </li>
+        </ul>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://naylynepsicologa.netlify.app/" target="_blank" class="inline-flex items-center border border-zinc-700 hover:border-white px-6 py-3 rounded-full text-sm text-zinc-300 hover:text-white transition-all duration-300 group">
+            <span>Acessar site</span>
+            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href="https://wa.me/5583998363906" target="_blank" class="inline-flex items-center border border-green-700 hover:border-green-500 bg-green-900/20 px-6 py-3 rounded-full text-sm text-green-300 hover:text-green-200 transition-all duration-300 group">
+            <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+            <span>Quero um site assim</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYGROUND CRIATIVO -->
+<section class="py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-medium text-center mb-12 tracking-tight text-zinc-200">🎸 fora do código</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1: Guitarra -->
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-4xl">🎸</span>
+          <h3 class="text-lg font-medium">guitarra</h3>
+        </div>
+        <p class="text-zinc-300 text-base">aprendendo: solo de "Hotel California"</p>
+        <p class="text-zinc-500 text-sm mt-2">riff favorito: "Sweet Child o' Mine" (em progresso...)</p>
+        <div class="mt-4 w-full bg-zinc-800 h-1 rounded-full overflow-hidden">
+          <div class="bg-zinc-400 h-1 rounded-full" style="width: 65%"></div>
+        </div>
+        <span class="text-xs text-zinc-500 mt-1 block">dedicação: 65%</span>
+      </div>
+      <!-- Card 2: Pedal / Corrida -->
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow" style="transition-delay: 0.1s">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-4xl">🚴</span>
+          <h3 class="text-lg font-medium">pedal & corrida</h3>
+        </div>
+        <p class="text-zinc-300 text-base">meta do mês: 100km</p>
+        <p class="text-zinc-500 text-sm mt-2">já pedalei 60km • corrida 5km em 48min</p>
+        <div class="mt-4 flex gap-2 items-center">
+          <span class="text-green-400 text-sm">🏁 recorde pessoal</span>
+          <span class="text-xs text-zinc-400">(11/01/2026)</span>
+        </div>
+      </div>
+      <!-- Card 3: Treino / Academia -->
+      <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 fade-up backdrop-blur-sm card-hover border-glow" style="transition-delay: 0.2s">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-4xl">🏋️</span>
+          <h3 class="text-lg font-medium">treino</h3>
+        </div>
+        <p class="text-zinc-300 text-base">supino: 80kg • agachamento: 100kg</p>
+        <p class="text-zinc-500 text-sm mt-2">desafio pessoal: 80 flexões seguidas (hoje: 30)</p>
+        <div class="mt-4 flex items-center gap-2">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          <span class="text-xs text-zinc-400">treino hoje às 18h</span>
+        </div>
+      </div>
+    </div>
+    <p class="text-zinc-500 text-xs text-center mt-8 italic">* resultados podem variar conforme a empolgação</p>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="py-24 px-6">
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-10 md:p-12 text-center fade-up backdrop-blur-sm card-hover border-glow">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+        Vamos tirar sua ideia do papel?
+      </h2>
+      <p class="text-zinc-400 mt-4 text-base">
+        Me conta sobre seu projeto e eu te mostro o melhor caminho.
+      </p>
+      <a href="https://wa.me/5583998363906" target="_blank" class="mt-8 inline-flex items-center border border-zinc-700 hover:border-white px-8 py-3 rounded-full text-sm text-zinc-300 hover:text-white transition-all duration-300 group">
+        <span>Falar comigo</span>
+        <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-zinc-600 text-sm py-8 border-t border-zinc-800">
+  © 2026 Anderson Silva — Web Designer & Desenvolvedor
+</footer>
+
+<!-- Script de animação fade-up e alternância de tema -->
+<script>
+  lucide.createIcons();
+
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  let isLight = false;
+
+  themeToggle.addEventListener('click', () => {
+    isLight = !isLight;
+    if (isLight) {
+      body.classList.add('light');
+      themeToggle.innerHTML = '<i data-lucide="sun" class="w-5 h-5"></i>';
+    } else {
+      body.classList.remove('light');
+      themeToggle.innerHTML = '<i data-lucide="moon" class="w-5 h-5"></i>';
+    }
+    lucide.createIcons();
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
